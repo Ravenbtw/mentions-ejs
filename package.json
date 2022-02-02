@@ -1,0 +1,31 @@
+{
+  "name": "mentions-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ravenbtw/mentions-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ravenbtw/mentions-tracker/issues"
+  },
+  "homepage": "https://github.com/Ravenbtw/mentions-tracker#readme",
+  "dependencies": {
+    "@twurple/api": "^5.0.17",
+    "@twurple/auth": "^5.0.17",
+    "@twurple/chat": "^5.0.17",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "passport": "^0.5.2",
+    "passport-twitch-new": "^0.0.2"
+  }
+}
