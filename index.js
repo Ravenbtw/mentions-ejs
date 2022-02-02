@@ -21,7 +21,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(session({
-    secret: Date.now(),
+    secret: Date.now().toString(),
     resave: true,
     saveUninitialized: true
 }));
