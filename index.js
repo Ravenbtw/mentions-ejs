@@ -123,7 +123,7 @@ const chatClient = new ChatClient({ channels: () => channels });
 chatClient.connect();
 
 chatClient.onMessage(async (channel, user, message, msg) => {
-    const messageWords = message.toLowerCase().replace(/[^a-z0-9]/g, ' ').split(' ');
+    const messageWords = message.toLowerCase().replace(/[^a-z0-9_]/g, ' ').split(' ');
     for (const word of words) {
         if (messageWords.includes(word)) {
             mentions.push({
