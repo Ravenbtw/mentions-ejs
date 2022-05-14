@@ -1,35 +1,64 @@
 <div class="container my-5">
-    <div class="row">
-        <div class="col-12 col-lg-3">
-            <h1>Mentions</h1>
-            <p>Logged in as <%= user.display_name %>!</p>
-            <h1>Tracked Words</h1>
-            <p>Space seperated.</p>
-            <form action="/words" method="post">
-                <input type="text" name="words" class="form-control mb-2" value="<%= words.join(' ') %>" placeholder="Example: Ravenbtw">
-                <input type="submit" value="Save Words" class="form-control mb-2">
-            </form>
-            <h1>Utilities</h1>
-            <form action="/clear" method="post">
-                <input type="text" value="<%= mentions.length %>" name="amount" class="d-none">
-                <input type="submit" value="Clear Mentions" class="form-control mb-2">
-            </form>
-            <a href="https://www.raven.fo" class="text-decoration-none text-light">Made by Ravenbtw</a>
-        </div>
-        <div class="col-12 col-lg-9">
-            <h1>Recent Mentions</h1>
-            <% if (mentions.length) { %>
-                <div class="row">
-                    <% for (const [index, message] of mentions.entries()) { %>
-                        <div class="col-12">
-                            <h4 class="bg-secondary rounded p-3">[<a href="https://www.twitch.tv/<%= message.channel %>" class="text-decoration-none text-white"><%= message.channel %></a>] <a href="https://www.twitch.tv/<%= message.user %>" class="text-decoration-none" style="color: <%= message.color %>"><%= message.user %></a>: <%= message.message %></h4>
-                            <p><%= new Date(message.time).toLocaleString() %></p>
-                        </div>
-                    <% } %>
-                </div>
-            <% } else { %>
-                <p>No mentions yet. :(</p>
-            <% } %>
-        </div>
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <h1>Mentions</h1>
+      <p>Logged in as <%= user.display_name %>!</p>
+      <h1>Tracked Words</h1>
+      <p>Space seperated.</p>
+      <form action="/words" method="post">
+        <input
+          type="text"
+          name="words"
+          class="form-control mb-2"
+          value="<%= words.join(' ') %>"
+          placeholder="Example: Ravenbtw"
+        />
+        <input type="submit" value="Save Words" class="form-control mb-2" />
+      </form>
+      <h1>Utilities</h1>
+      <form action="/clear" method="post">
+        <input
+          type="text"
+          value="<%= mentions.length %>"
+          name="amount"
+          class="d-none"
+        />
+        <input
+          type="submit"
+          value="Clear Seen Mentions"
+          class="form-control mb-2"
+        />
+      </form>
+      <a href="https://www.raven.fo" class="text-decoration-none text-light"
+        >Made by Ravenbtw</a
+      >
     </div>
+    <div class="col-12 col-lg-9">
+      <h1>Recent Mentions (Showing max 100 at a time.)</h1>
+      <% if (mentions.length) { %>
+      <div class="row">
+        <% for (const [index, message] of mentions.entries()) { %>
+        <div class="col-12">
+          <h4 class="bg-secondary rounded p-3">
+            [<a
+              href="https://www.twitch.tv/<%= message.channel %>"
+              class="text-decoration-none text-white"
+              ><%= message.channel %></a
+            >]
+            <a
+              href="https://www.twitch.tv/<%= message.user %>"
+              class="text-decoration-none"
+              style="color: <%= message.color %>"
+              ><%= message.user %></a
+            >: <%= message.message %>
+          </h4>
+          <p><%= new Date(message.time).toLocaleString() %></p>
+        </div>
+        <% } %>
+      </div>
+      <% } else { %>
+      <p>No mentions yet. :(</p>
+      <% } %>
+    </div>
+  </div>
 </div>
